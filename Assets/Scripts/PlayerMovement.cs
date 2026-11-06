@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isMovementLocked = false;
 
     private PushableObject pushableObject;
+    [SerializeField] private Interactor interactor;
+
     private Vector2 pushDirection;
     private bool isPressingPushButton = false;
 
@@ -23,12 +25,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isMovementLocked)
         {
-           currentInput = GetInput();
+            currentInput = GetInput();
             rb.linearVelocity = currentInput.normalized * moveSpeed;
 
             if(currentInput != Vector2.zero)
             {
                 lastMoveDirection = currentInput.normalized;
+
+                interactor.SetFacingDirection(lastMoveDirection);
             }
 
         }
