@@ -3,14 +3,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float pushPower = 2f;
 
     Rigidbody2D rb;
     Vector2 currentInput;
 
     public bool isMovementLocked = false;
 
-    public string pushableObject;
+    private PushableObject pushableObject;
+    private bool isPressingPushButton = false;
 
     void Start()
     {
@@ -22,11 +22,20 @@ public class PlayerMovement : MonoBehaviour
         if(!isMovementLocked)
         {
            currentInput = GetInput();
-           rb.linearVelocity = currentInput.normalized * moveSpeed;
+            rb.linearVelocity = currentInput.normalized * moveSpeed;
         }
         else
         {
             rb.linearVelocity = Vector2.zero;
+        }
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            isPressingPushButton = true;
+        }
+        else
+        {
+            isPressingPushButton = false;
         }
         /*
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -43,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
             rb.position + movement * moveSpeed * Time.fixedDeltaTime
         );
         */
+        if(isPressingPushButton && pushableObject != null)
+        {
+            pushableObject.Push(currentInput);
+        }
     }
     Vector2 GetInput()
     {
@@ -52,33 +65,16 @@ public class PlayerMovement : MonoBehaviour
         return new Vector2 (moveX, moveY);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if(isMovementLocked)
-            return;
-
-        if(collision.gameObject.CompareTag(pushableObject))
-        {
-            Rigidbody2D objectRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
-
-            if(objectRigidbody != null && currentInput != Vector2.zero)
-            {
-                Vector2 pushDirection = currentInput.normalized;
-                objectRigidbody.linearVelocity = pushDirection;
-            }
-        }
+        pushableObject = collision.gameObject.GetComponent<PushableObject>();
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag(pushableObject))
+        if(collision.gameObject.GetComponent<PushableObject>() != null)
         {
-            Rigidbody2D objectRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
-
-            if(objectRigidbody != null)
-            {
-                objectRigidbody.linearVelocity = Vector2.zero;
-            }
+            pushableObject = null;
         }
     }
 }
