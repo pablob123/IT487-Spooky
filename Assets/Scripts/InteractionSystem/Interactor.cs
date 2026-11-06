@@ -6,6 +6,7 @@ public class Interactor : MonoBehaviour
    [SerializeField] private float _interactionPointRadius = 0.5f;
    [SerializeField] private float _interactionDistance = 0.5f;
    [SerializeField] private LayerMask _interactableMask;
+   [SerializeField] private InteractionPromptUI _interactionPromptUI;
 
    [SerializeField] private Rigidbody2D _playerRigidbody;
 
@@ -14,27 +15,41 @@ public class Interactor : MonoBehaviour
 
    private Vector2 _facingDirection = Vector2.down;
 
+   private IInteractable interactable;
+
    private void Update()
    {
         _numFoundColliders = Physics2D.OverlapCircleNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
-        if(_numFoundColliders <= 0)
-            return;
-
-        IInteractable interactable = _colliders[0].GetComponent<IInteractable>();
-
-        if(interactable == null)
-            return;
-
-        if(Input.GetKeyDown(KeyCode.E))
+        if(_numFoundColliders > 0)
         {
-            interactable.Interact(this);
+            interactable = _colliders[0].GetComponent<IInteractable>();
+
+            if(!_interactionPromptUI.isDisplayed)
+            {
+                _interactionPromptUI.SetUp(interactable.InteractionPrompt);
+            }
+
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                interactable.Interact(this);
+            }
+
+            if(Input.GetKey(KeyCode.E) && !Input.GetKeyDown(KeyCode.E))
+            {
+                interactable.HoldInteract(this);
+            }
+        }
+        else
+        {
+            if(interactable != null)
+                interactable = null;
+            
+            if(_interactionPromptUI.isDisplayed)
+                _interactionPromptUI.Close();
         }
 
-        if(Input.GetKey(KeyCode.E) && !Input.GetKeyDown(KeyCode.E))
-        {
-            interactable.HoldInteract(this);
-        }
+
    }
 
    public void SetFacingDirection(Vector2 direction)

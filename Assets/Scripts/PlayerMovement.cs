@@ -61,14 +61,4 @@ public class PlayerMovement : MonoBehaviour
 
         return new Vector2 (moveX, moveY);
     }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        
-    }
 }
