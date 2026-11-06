@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
             if (inventoryManager.UseKey())
             {
                 Debug.Log("Door unlocked");
+                Debug.Log("Keys: " + inventoryManager.GetKeyCount());
 
                 gameObject.SetActive(false);
             }
@@ -30,5 +31,14 @@ public class Door : MonoBehaviour
             Debug.Log("Press E to unlock the door.");
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerNear = false;
+        }
+    }
+
 
 }

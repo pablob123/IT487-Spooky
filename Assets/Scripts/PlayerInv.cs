@@ -32,6 +32,13 @@ public class PlayerInventory : MonoBehaviour
             Debug.Log("Press E to interact");
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            itemInRange = null;
+        }
+    }
 
 
 }
