@@ -17,12 +17,13 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
 
     public GameObject gameOverPanel;
-    public MonoBehaviour playerMovement;
+    private PlayerMovement playerMovement;
 
     void Start()
     {
         targetPoint = pointA;
         rb = GetComponent<Rigidbody2D>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         gameOverPanel.SetActive(false);
     }
 
@@ -39,7 +40,8 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("GAME OVER! PLAYER GOT TOUCHED!");
 
             gameOverPanel.SetActive(true);
-            playerMovement.enabled = false;
+            
+            playerMovement.isMovementLocked = true;
 
             return;
         }
