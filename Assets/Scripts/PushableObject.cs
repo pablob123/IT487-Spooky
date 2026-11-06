@@ -15,6 +15,5 @@ public class PushableObject : MonoBehaviour
     {
         pushableObjectRigidbody.MovePosition(pushableObjectRigidbody.position + direction.normalized * pushSpeed * Time.fixedDeltaTime);
     }
-
     
 }

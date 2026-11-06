@@ -6,10 +6,12 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 currentInput;
+    private Vector2 lastMoveDirection = Vector2.down;
 
     public bool isMovementLocked = false;
 
     private PushableObject pushableObject;
+    private Vector2 pushDirection;
     private bool isPressingPushButton = false;
 
     void Start()
@@ -23,20 +25,21 @@ public class PlayerMovement : MonoBehaviour
         {
            currentInput = GetInput();
             rb.linearVelocity = currentInput.normalized * moveSpeed;
+
+            if(currentInput != Vector2.zero)
+            {
+                lastMoveDirection = currentInput.normalized;
+            }
+
         }
         else
         {
+            currentInput = Vector2.zero;
             rb.linearVelocity = Vector2.zero;
         }
 
-        if(Input.GetKey(KeyCode.E))
-        {
-            isPressingPushButton = true;
-        }
-        else
-        {
-            isPressingPushButton = false;
-        }
+        isPressingPushButton = Input.GetKey(KeyCode.E);
+
         /*
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -54,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         */
         if(isPressingPushButton && pushableObject != null)
         {
-            pushableObject.Push(currentInput);
+            pushableObject.Push(pushDirection);
         }
     }
     Vector2 GetInput()
@@ -67,12 +70,30 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        pushableObject = collision.gameObject.GetComponent<PushableObject>();
+        PushableObject foundObject = collision.gameObject.GetComponent<PushableObject>();
+
+        if(foundObject != null)
+        {
+            pushableObject = foundObject;
+
+            Vector2 direction = (Vector2)collision.transform.position - rb.position;
+
+            if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                pushDirection = new Vector2(Mathf.Sign(direction.x), 0);
+            }
+            else
+            {
+                pushDirection = new Vector2(0, Mathf.Sign(direction.y));
+            }
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<PushableObject>() != null)
+     PushableObject exitedObject = collision.gameObject.GetComponent<PushableObject>();
+
+        if(exitedObject != null && exitedObject == pushableObject)
         {
             pushableObject = null;
         }
