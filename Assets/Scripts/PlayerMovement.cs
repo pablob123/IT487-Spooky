@@ -10,11 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMovementLocked = false;
 
-    private PushableObject pushableObject;
     [SerializeField] private Interactor interactor;
-
-    private Vector2 pushDirection;
-    private bool isPressingPushButton = false;
 
     void Start()
     {
@@ -42,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
 
-        isPressingPushButton = Input.GetKey(KeyCode.E);
-
         /*
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -59,10 +53,6 @@ public class PlayerMovement : MonoBehaviour
             rb.position + movement * moveSpeed * Time.fixedDeltaTime
         );
         */
-        if(isPressingPushButton && pushableObject != null)
-        {
-            pushableObject.Push(pushDirection);
-        }
     }
     Vector2 GetInput()
     {
@@ -74,32 +64,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        PushableObject foundObject = collision.gameObject.GetComponent<PushableObject>();
-
-        if(foundObject != null)
-        {
-            pushableObject = foundObject;
-
-            Vector2 direction = (Vector2)collision.transform.position - rb.position;
-
-            if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-            {
-                pushDirection = new Vector2(Mathf.Sign(direction.x), 0);
-            }
-            else
-            {
-                pushDirection = new Vector2(0, Mathf.Sign(direction.y));
-            }
-        }
+        
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-     PushableObject exitedObject = collision.gameObject.GetComponent<PushableObject>();
-
-        if(exitedObject != null && exitedObject == pushableObject)
-        {
-            pushableObject = null;
-        }
+        
     }
 }
