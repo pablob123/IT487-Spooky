@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(moveX, moveY).normalized;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Interact key pressed");
+        }
     }
 
     void FixedUpdate()
