@@ -4,8 +4,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    Rigidbody2D rb;
+    Vector2 currentInput;
+    private Vector2 lastMoveDirection = Vector2.down;
+
+    public bool isMovementLocked = false;
+
+    [SerializeField] private Interactor interactor;
 
     void Start()
     {
@@ -14,21 +19,46 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(!isMovementLocked)
+        {
+            currentInput = GetInput();
+            rb.linearVelocity = currentInput.normalized * moveSpeed;
+
+            if(currentInput != Vector2.zero)
+            {
+                lastMoveDirection = currentInput.normalized;
+
+                interactor.SetFacingDirection(lastMoveDirection);
+            }
+
+        }
+        else
+        {
+            currentInput = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        /*
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(moveX, moveY).normalized;
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Interact key pressed");
-        }
+        */
     }
 
     void FixedUpdate()
     {
+        /*
         rb.MovePosition(
             rb.position + movement * moveSpeed * Time.fixedDeltaTime
         );
+        */
+    }
+    Vector2 GetInput()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        return new Vector2 (moveX, moveY);
     }
 }
