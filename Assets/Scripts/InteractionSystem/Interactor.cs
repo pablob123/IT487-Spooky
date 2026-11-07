@@ -33,9 +33,9 @@ public class Interactor : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 interactable.Interact(this);
+                Debug.Log("key pressed");
             }
-
-            if(Input.GetKey(KeyCode.E) && !Input.GetKeyDown(KeyCode.E))
+            else if(Input.GetKey(KeyCode.E))
             {
                 interactable.HoldInteract(this);
             }
