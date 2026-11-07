@@ -3,6 +3,8 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
+    public GameObject endPanel;
+    public GameObject Enemy;
 
     public InventoryManager inventory;
 
@@ -35,6 +37,8 @@ public class Door : MonoBehaviour, IInteractable
         
         if (inventory.UseKey())
         {
+            endPanel.SetActive(true);
+            Enemy.SetActive(false);
             Debug.Log("Door unlocked");
             Debug.Log("Keys: " + inventory.GetKeyCount());
 
