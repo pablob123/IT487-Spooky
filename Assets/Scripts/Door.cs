@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IInteractable
 {
-    public InventoryManager inventoryManager;
-    private bool playerNear = false;
+    [SerializeField] private string _prompt;
+
+    public InventoryManager inventory;
+
+    public string InteractionPrompt => _prompt;
 
     void Update()
     {
+        /*
         if (playerNear && Input.GetKeyDown(KeyCode.E))
         {
             if (inventoryManager.UseKey())
@@ -21,8 +25,32 @@ public class Door : MonoBehaviour
                 Debug.Log("You need a Key to open this door.");
             }
         }
+        */
     }
 
+    public bool Interact(Interactor interactor)
+    {
+        if(inventory == null)
+            return false;
+        
+        if (inventory.UseKey())
+        {
+            Debug.Log("Door unlocked");
+            Debug.Log("Keys: " + inventory.GetKeyCount());
+
+            gameObject.SetActive(false);
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool HoldInteract(Interactor interactor)
+    {
+        return false;
+    }
+
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -39,6 +67,7 @@ public class Door : MonoBehaviour
             playerNear = false;
         }
     }
+    */
 
 
 }
