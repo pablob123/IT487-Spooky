@@ -33,7 +33,7 @@ public class HiddenTrigger : MonoBehaviour
         Vector3 newPosition = new Vector3(monsterPosition.position.x + moveX, monsterPosition.position.y + moveY);
         while(Vector3.Distance(monsterPosition.position, newPosition) > 0.01)
         {
-            monsterPosition.position = Vector3.MoveTowards(monsterPosition.position, newPosition, 0.03f);
+            monsterPosition.position = Vector3.MoveTowards(monsterPosition.position, newPosition, 0.02f);
             yield return null;
         }
         monsterPosition.gameObject.SetActive(false);
