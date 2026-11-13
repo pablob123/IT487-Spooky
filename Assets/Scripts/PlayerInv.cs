@@ -1,9 +1,11 @@
-using System.Collections.Generic;
+
 using UnityEngine;
+
 public class PlayerInventory : MonoBehaviour
 {
-
     public InventoryManager inventoryManager;
+
+    public AudioClip pickupSound;
 
     private GameObject itemInRange = null;
 
@@ -17,6 +19,11 @@ public class PlayerInventory : MonoBehaviour
             {
                 inventoryManager.AddKey(1);
                 Debug.Log("Keys: " + inventoryManager.GetKeyCount());
+
+                if (pickupSound != null)
+                {
+                    AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position, .5f);
+                }
             }
 
             itemInRange.SetActive(false);
@@ -32,6 +39,7 @@ public class PlayerInventory : MonoBehaviour
             Debug.Log("Press E to interact");
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
@@ -39,6 +47,4 @@ public class PlayerInventory : MonoBehaviour
             itemInRange = null;
         }
     }
-
-
 }
