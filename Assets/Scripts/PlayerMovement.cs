@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,25 +13,36 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Interactor interactor;
 
+    public AudioSource footsteps;
+    public AudioClip normalWalking;
+    public AudioClip dirtWalking;
+    public bool onDirt = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        footsteps.clip = normalWalking;
+        footsteps.loop = true;
+        footsteps.playOnAwake = false;
+
+        footsteps.Play();
+        footsteps.Pause();
     }
 
     void Update()
     {
-        if(!isMovementLocked)
+        if (!isMovementLocked)
         {
             currentInput = GetInput();
             rb.linearVelocity = currentInput.normalized * moveSpeed;
 
-            if(currentInput != Vector2.zero)
+            if (currentInput != Vector2.zero)
             {
                 lastMoveDirection = currentInput.normalized;
 
                 interactor.SetFacingDirection(lastMoveDirection);
             }
-
         }
         else
         {
@@ -38,27 +50,50 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
 
-        /*
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        AudioClip walkingSound = onDirt ? dirtWalking : normalWalking;
+        footsteps.volume = onDirt ? .3f : .3f;
 
-        movement = new Vector2(moveX, moveY).normalized;
-        */
+        if (footsteps.clip != walkingSound)
+        {
+            footsteps.Stop();
+            footsteps.clip = walkingSound;
+
+            footsteps.Play();
+            footsteps.Pause();
+        }
+
+        if (currentInput != Vector2.zero)
+        {
+            if (!footsteps.isPlaying)
+                footsteps.UnPause();
+        }
+        else
+        {
+            footsteps.Pause();
+        }
     }
 
     void FixedUpdate()
     {
-        /*
-        rb.MovePosition(
-            rb.position + movement * moveSpeed * Time.fixedDeltaTime
-        );
-        */
     }
+
     Vector2 GetInput()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        return new Vector2 (moveX, moveY);
+        return new Vector2(moveX, moveY);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Dirt"))
+            onDirt = true;
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Dirt"))
+            onDirt = false;
     }
 }
