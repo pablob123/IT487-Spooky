@@ -15587,11 +15587,11 @@ PrefabInstance:
     - target: {fileID: 6793396014412747795, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
       propertyPath: dirtWalking
       value: 
-      objectReference: {fileID: 8300000, guid: df2feb6fc206a7e49ad1b967b920f224, type: 3}
+      objectReference: {fileID: 8300000, guid: 633bdcb894611404988d16e16328c403, type: 3}
     - target: {fileID: 6793396014412747795, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
       propertyPath: normalWalking
       value: 
-      objectReference: {fileID: 8300000, guid: 0ae1124948c29ba45a90a3fa9f5aeefe, type: 3}
+      objectReference: {fileID: 8300000, guid: 3a3aa7de7d8f53246b2bda9a1397f282, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -15640,7 +15640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   inventoryManager: {fileID: 370652318}
-  pickupSound: {fileID: 8300000, guid: 848529be9958b6a4e916820d32e7a51b, type: 3}
+  pickupSound: {fileID: 8300000, guid: 0e177516def80774f8d6722c93340b0a, type: 3}
 --- !u!114 &1281178607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16549,6 +16549,7 @@ MonoBehaviour:
   catchDistance: 1.2
   gameOverPanel: {fileID: 1392157955}
   chaseMusic: {fileID: 1711597500}
+  gameOverMusic: {fileID: 0}
 --- !u!61 &1711597496
 BoxCollider2D:
   m_ObjectHideFlags: 0

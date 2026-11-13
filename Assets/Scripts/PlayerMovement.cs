@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         AudioClip walkingSound = onDirt ? dirtWalking : normalWalking;
-        footsteps.volume = onDirt ? 0.25f : .28f;
+        footsteps.volume = onDirt ? .3f : .3f;
 
         if (footsteps.clip != walkingSound)
         {

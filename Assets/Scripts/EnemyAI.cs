@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     private PlayerMovement playerMovement;
 
     public AudioSource chaseMusic;
+    public AudioSource gameOverMusic;
 
     void Start()
     {
@@ -44,6 +45,9 @@ public class EnemyAI : MonoBehaviour
 
             if (chaseMusic != null)
                 chaseMusic.Stop();
+
+            if (gameOverMusic != null)
+                gameOverMusic.Play();
 
             gameOverPanel.SetActive(true);
 
