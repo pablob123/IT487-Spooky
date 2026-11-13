@@ -51,8 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         AudioClip walkingSound = onDirt ? dirtWalking : normalWalking;
-        footsteps.volume = onDirt ? .3f : .3f;
-
+        footsteps.volume = 1f;
         if (footsteps.clip != walkingSound)
         {
             footsteps.Stop();

@@ -1,11 +1,14 @@
 
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInv : MonoBehaviour
 {
     public InventoryManager inventoryManager;
 
     public AudioClip pickupSound;
+    public AudioSource pickupAudio;
+
+    public ObjectiveManager objectiveManager;
 
     private GameObject itemInRange = null;
 
@@ -20,9 +23,20 @@ public class PlayerInventory : MonoBehaviour
                 inventoryManager.AddKey(1);
                 Debug.Log("Keys: " + inventoryManager.GetKeyCount());
 
-                if (pickupSound != null)
+                if (objectiveManager != null)
                 {
-                    AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position, .5f);
+                    objectiveManager.KeyCollected();
+                }
+
+                Debug.Log("Pickup sound triggered!");
+
+                if (pickupAudio != null && pickupSound != null)
+                {
+                    pickupAudio.PlayOneShot(pickupSound);
+                }
+                else
+                {
+                    Debug.LogWarning("Pickup Audio or Pickup Sound is missing!");
                 }
             }
 
