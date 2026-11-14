@@ -1,9 +1,14 @@
-using System.Collections.Generic;
-using UnityEngine;
-public class PlayerInventory : MonoBehaviour
-{
 
+using UnityEngine;
+
+public class PlayerInv : MonoBehaviour
+{
     public InventoryManager inventoryManager;
+
+    public AudioClip pickupSound;
+    public AudioSource pickupAudio;
+
+    public ObjectiveManager objectiveManager;
 
     private GameObject itemInRange = null;
 
@@ -17,6 +22,22 @@ public class PlayerInventory : MonoBehaviour
             {
                 inventoryManager.AddKey(1);
                 Debug.Log("Keys: " + inventoryManager.GetKeyCount());
+
+                if (objectiveManager != null)
+                {
+                    objectiveManager.KeyCollected();
+                }
+
+                Debug.Log("Pickup sound triggered!");
+
+                if (pickupAudio != null && pickupSound != null)
+                {
+                    pickupAudio.PlayOneShot(pickupSound);
+                }
+                else
+                {
+                    Debug.LogWarning("Pickup Audio or Pickup Sound is missing!");
+                }
             }
 
             itemInRange.SetActive(false);
@@ -32,6 +53,7 @@ public class PlayerInventory : MonoBehaviour
             Debug.Log("Press E to interact");
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
@@ -39,6 +61,4 @@ public class PlayerInventory : MonoBehaviour
             itemInRange = null;
         }
     }
-
-
 }

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -19,6 +20,9 @@ public class EnemyAI : MonoBehaviour
     public GameObject gameOverPanel;
     private PlayerMovement playerMovement;
 
+    public AudioSource chaseMusic;
+    public AudioSource gameOverMusic;
+
     void Start()
     {
         targetPoint = pointA;
@@ -39,8 +43,14 @@ public class EnemyAI : MonoBehaviour
 
             Debug.Log("GAME OVER! PLAYER GOT TOUCHED!");
 
+            if (chaseMusic != null)
+                chaseMusic.Stop();
+
+            if (gameOverMusic != null)
+                gameOverMusic.Play();
+
             gameOverPanel.SetActive(true);
-            
+
             playerMovement.isMovementLocked = true;
 
             return;
@@ -55,6 +65,9 @@ public class EnemyAI : MonoBehaviour
 
         if (distance <= detectionRange)
         {
+            if (chaseMusic != null && !chaseMusic.isPlaying)
+                chaseMusic.Play();
+
             newPosition = Vector2.MoveTowards(
                 rb.position,
                 player.position,
@@ -63,6 +76,9 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            if (chaseMusic != null && chaseMusic.isPlaying)
+                chaseMusic.Stop();
+
             newPosition = Vector2.MoveTowards(
                 rb.position,
                 targetPoint.position,
@@ -77,6 +93,7 @@ public class EnemyAI : MonoBehaviour
                     targetPoint = pointA;
             }
         }
+
         rb.MovePosition(newPosition);
     }
 }
