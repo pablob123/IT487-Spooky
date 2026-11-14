@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -38,6 +39,7 @@ public class Door : MonoBehaviour, IInteractable
         if (inventory.UseKey())
         {
             endPanel.SetActive(true);
+            SceneManager.LoadScene("House");
             Enemy.SetActive(false);
             Debug.Log("Door unlocked");
             Debug.Log("Keys: " + inventory.GetKeyCount());

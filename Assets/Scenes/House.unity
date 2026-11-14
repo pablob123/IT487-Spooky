@@ -129,9 +129,11 @@ GameObject:
   m_Component:
   - component: {fileID: 112990791}
   - component: {fileID: 112990790}
+  - component: {fileID: 112990793}
+  - component: {fileID: 112990792}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +213,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &112990792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112990789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d307c788a5f4a8e46aa14d09afbcfa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  floor: House Floor 2
+  floorChangeVal: 0
+--- !u!61 &112990793
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112990789}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9375, y: 1.5625}
+    newSize: {x: 1.9375, y: 1.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.9375, y: 1.5625}
+  m_EdgeRadius: 0
 --- !u!1 &168228317
 GameObject:
   m_ObjectHideFlags: 0
@@ -16592,6 +16654,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5671774340137976586, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1849054714}
+    - targetCorrespondingSourceObject: {fileID: 5671774340137976586, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 408373366}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5653641576037364747, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
       insertIndex: -1
@@ -16599,6 +16664,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5653641576037364747, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
       insertIndex: -1
       addedObject: {fileID: 398905247}
+    - targetCorrespondingSourceObject: {fileID: 5653641576037364747, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 398905249}
   m_SourcePrefab: {fileID: 100100000, guid: dd4f5c5342e4b3d49bdfe5a779f09513, type: 3}
 --- !u!1 &398905244 stripped
 GameObject:
@@ -16649,6 +16717,18 @@ MonoBehaviour:
   _interactionPromptUI: {fileID: 1849054713}
   _playerRigidbody: {fileID: 398905245}
   _numFoundColliders: 0
+--- !u!114 &398905249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398905244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bdf3cfeed60534b990c85ed1687886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &408373363
 GameObject:
   m_ObjectHideFlags: 0
@@ -16736,12 +16816,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408373363}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.74, y: -0.05, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 398905246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408373367
 MonoBehaviour:
@@ -22024,9 +22104,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1402842863}
   - component: {fileID: 1402842862}
+  - component: {fileID: 1402842865}
+  - component: {fileID: 1402842864}
   m_Layer: 0
   m_Name: Stairs_1
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22106,6 +22188,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1402842864
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402842861}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9375, y: 1.5625}
+    newSize: {x: 1.9375, y: 1.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.9375, y: 1.5625}
+  m_EdgeRadius: 0
+--- !u!114 &1402842865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402842861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d307c788a5f4a8e46aa14d09afbcfa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::changeFloor
+  floor: House Basement
+  floorChangeVal: 2
 --- !u!1 &1849054712
 GameObject:
   m_ObjectHideFlags: 0
@@ -22368,7 +22510,6 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 408373366}
   - {fileID: 824502985}
   - {fileID: 897856434}
   - {fileID: 398905243}

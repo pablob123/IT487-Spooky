@@ -14,5 +14,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartingScene.unity
     guid: cad29981876bfb9428bba72b5cad5429
+  - enabled: 1
+    path: Assets/Scenes/House.unity
+    guid: c910f071a464699499457527d8b13b6a
+  - enabled: 1
+    path: Assets/Scenes/House Attic.unity
+    guid: 5c3a46c653b89624ca6cccf38da37835
+  - enabled: 1
+    path: Assets/Scenes/House Basement.unity
+    guid: 0f6372ddfd765044ebca4d2036d1a781
+  - enabled: 1
+    path: Assets/Scenes/House Floor 2.unity
+    guid: 899f2bf85f9e15643a68bae6e9b61db0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
