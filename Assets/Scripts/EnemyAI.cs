@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;
+    public Transform[] patrolPoints;
     public float moveSpeed = 2f;
 
     public Transform player;
@@ -23,12 +22,27 @@ public class EnemyAI : MonoBehaviour
     public AudioSource chaseMusic;
     public AudioSource gameOverMusic;
 
+    public bool isChasing = false;
+
+    public bool forcedChase = false;
+
     void Start()
     {
-        targetPoint = pointA;
         rb = GetComponent<Rigidbody2D>();
         playerMovement = player.GetComponent<PlayerMovement>();
         gameOverPanel.SetActive(false);
+
+        ChooseRandomPoint();
+    }
+
+    void ChooseRandomPoint()
+    {
+        if (patrolPoints.Length > 0)
+        {
+            targetPoint = patrolPoints[
+                Random.Range(0, patrolPoints.Length)
+            ];
+        }
     }
 
     void FixedUpdate()
@@ -42,6 +56,9 @@ public class EnemyAI : MonoBehaviour
             playerCaught = true;
 
             Debug.Log("GAME OVER! PLAYER GOT TOUCHED!");
+
+            isChasing = false;
+            forcedChase = false;
 
             if (chaseMusic != null)
                 chaseMusic.Stop();
@@ -63,8 +80,10 @@ public class EnemyAI : MonoBehaviour
 
         Vector2 newPosition;
 
-        if (distance <= detectionRange)
+        if (distance <= detectionRange || forcedChase)
         {
+            isChasing = true;
+
             if (chaseMusic != null && !chaseMusic.isPlaying)
                 chaseMusic.Play();
 
@@ -76,6 +95,8 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            isChasing = false;
+
             if (chaseMusic != null && chaseMusic.isPlaying)
                 chaseMusic.Stop();
 
@@ -87,13 +108,27 @@ public class EnemyAI : MonoBehaviour
 
             if (Vector2.Distance(newPosition, targetPoint.position) < 0.1f)
             {
-                if (targetPoint == pointA)
-                    targetPoint = pointB;
-                else
-                    targetPoint = pointA;
+                ChooseRandomPoint();
             }
         }
 
         rb.MovePosition(newPosition);
+    }
+
+    public void StartAmbush(Vector2 spawnPosition)
+    {
+        if (playerCaught)
+            return;
+
+        rb.position = spawnPosition;
+        transform.position = spawnPosition;
+
+        forcedChase = true;
+        isChasing = true;
+
+        if (chaseMusic != null && !chaseMusic.isPlaying)
+            chaseMusic.Play();
+
+        Debug.Log("MONSTER AMBUSH ACTIVATED!");
     }
 }
