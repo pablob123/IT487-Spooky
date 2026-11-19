@@ -1,0 +1,361 @@
+fileFormatVersion: 2
+guid: 7638ad7171e51e446b9e450375f4b18b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 819524922854315515
+    second: FencesandDocks_0
+  - first:
+      213: -1231340322989926746
+    second: FencesandDocks_1
+  - first:
+      213: -4683763745837052522
+    second: FencesandDocks_2
+  - first:
+      213: 2755627604975740809
+    second: FencesandDocks_3
+  - first:
+      213: 7017783503562015591
+    second: FencesandDocks_4
+  - first:
+      213: -3501348624961814476
+    second: FencesandDocks_5
+  - first:
+      213: 9125158865809946238
+    second: FencesandDocks_6
+  - first:
+      213: -5365273481363170632
+    second: FencesandDocks_7
+  - first:
+      213: -5188687920789777403
+    second: FencesandDocks_8
+  - first:
+      213: -3698018551644069267
+    second: FencesandDocks_9
+  - first:
+      213: -875236428687600159
+    second: FencesandDocks_10
+  - first:
+      213: 7841370124886831313
+    second: FencesandDocks_11
+  - first:
+      213: -3665857016173023582
+    second: FencesandDocks_12
+  - first:
+      213: 2929036221083974811
+    second: FencesandDocks_13
+  - first:
+      213: -1839981595080553192
+    second: FencesandDocks_14
+  - first:
+      213: 4012412760779275384
+    second: FencesandDocks_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 14
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FencesandDocks_3
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 211
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 987e6dfe4b4fd3620800000000000000
+      internalID: 2755627604975740809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 211
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76309682aec246160800000000000000
+      internalID: 7017783503562015591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 179
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430495ef9f5b86fc0800000000000000
+      internalID: -3501348624961814476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 195
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50417fea3d31ef7b0800000000000000
+      internalID: -5188687920789777403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 195
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d62637068bffdacc0800000000000000
+      internalID: -3698018551644069267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_10
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 179
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e51895fa198ad3f0800000000000000
+      internalID: -875236428687600159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_11
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 179
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d07d3e459422dc60800000000000000
+      internalID: 7841370124886831313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencesandDocks_12
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 179
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae22a16772402dc0800000000000000
+      internalID: -3665857016173023582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1146915d83a5d134fa1ff75ea31eb119
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      FencesandDocks_0: 819524922854315515
+      FencesandDocks_1: -1231340322989926746
+      FencesandDocks_10: -875236428687600159
+      FencesandDocks_11: 7841370124886831313
+      FencesandDocks_12: -3665857016173023582
+      FencesandDocks_13: 2929036221083974811
+      FencesandDocks_14: -1839981595080553192
+      FencesandDocks_15: 4012412760779275384
+      FencesandDocks_2: -4683763745837052522
+      FencesandDocks_3: 2755627604975740809
+      FencesandDocks_4: 7017783503562015591
+      FencesandDocks_5: -3501348624961814476
+      FencesandDocks_6: 9125158865809946238
+      FencesandDocks_7: -5365273481363170632
+      FencesandDocks_8: -5188687920789777403
+      FencesandDocks_9: -3698018551644069267
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
