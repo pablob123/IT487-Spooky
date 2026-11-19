@@ -833,6 +833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8a04957eff13945a9f82b0d2b0ee80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  PopUpText: {fileID: 0}
+  displaytime: 2.5
 --- !u!4 &370652319
 Transform:
   m_ObjectHideFlags: 0
@@ -1561,7 +1563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753279216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38723,8 +38725,8 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 753279219}
   - {fileID: 1257843729}
+  - {fileID: 753279219}
   - {fileID: 1281178602}
   - {fileID: 1967432330}
   - {fileID: 791617716}
