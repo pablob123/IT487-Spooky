@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isMovementLocked)
         {
             currentInput = GetInput();
-            rb.linearVelocity = currentInput.normalized * moveSpeed;
+            rb.linearVelocity = currentInput * moveSpeed;
 
             if (currentInput != Vector2.zero)
             {
