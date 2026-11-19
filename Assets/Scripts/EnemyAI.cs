@@ -26,9 +26,13 @@ public class EnemyAI : MonoBehaviour
 
     public bool forcedChase = false;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
         playerMovement = player.GetComponent<PlayerMovement>();
         gameOverPanel.SetActive(false);
 

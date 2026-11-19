@@ -1425,7 +1425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &551996789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16673,6 +16673,7 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 0e177516def80774f8d6722c93340b0a, type: 3}
   pickupAudio: {fileID: 962845551}
   objectiveManager: {fileID: 1319516929}
+  ambushTrigger: {fileID: 551996788}
 --- !u!114 &1281178607
 MonoBehaviour:
   m_ObjectHideFlags: 0
