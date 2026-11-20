@@ -8,12 +8,15 @@ public class MonsterAmbushTrigger : MonoBehaviour
 
     private bool activated = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player") || activated)
             return;
 
         if (monster.isChasing)
+            return;
+
+        if (!monster.gameObject.activeInHierarchy)
             return;
 
         monster.StartAmbush(spawnPoint.position);

@@ -10,6 +10,8 @@ public class PlayerInv : MonoBehaviour
 
     public ObjectiveManager objectiveManager;
 
+    public GameObject ambushTrigger;
+
     private GameObject itemInRange = null;
 
     void Update()
@@ -26,6 +28,12 @@ public class PlayerInv : MonoBehaviour
                 if (objectiveManager != null)
                 {
                     objectiveManager.KeyCollected();
+                }
+
+                if (ambushTrigger != null)
+                {
+                    ambushTrigger.SetActive(true);
+                    Debug.Log("AMBUSH TRIGGER ACTIVATED!");
                 }
 
                 Debug.Log("Pickup sound triggered!");
