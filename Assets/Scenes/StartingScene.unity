@@ -1935,11 +1935,11 @@ Transform:
   m_GameObject: {fileID: 753279216}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 853066132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &753279220
 MonoBehaviour:
@@ -1994,10 +1994,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 753279216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f0f11188ecd7244f8df1761144cc5d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 48449093de299ec4ea2d5202bd64c9b9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  player: {fileID: 1281178605}
+  m_EditorClassIdentifier: Assembly-CSharp::Shake
+  Shaking: 0
+  magnitude: 0.04
 --- !u!1 &791617713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,6 +2230,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808773923}
   m_CullTransparentMesh: 1
+--- !u!1 &853066131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853066132}
+  - component: {fileID: 853066133}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853066132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853066131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 753279219}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853066133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853066131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0f11188ecd7244f8df1761144cc5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  player: {fileID: 1281178605}
 --- !u!1 &891646779
 GameObject:
   m_ObjectHideFlags: 0
@@ -17800,10 +17847,11 @@ MonoBehaviour:
   player: {fileID: 1281178605}
   detectionRange: 6
   chaseSpeed: 4.5
-  catchDistance: 1.2
+  catchDistance: 2
   gameOverPanel: {fileID: 1392157955}
   chaseMusic: {fileID: 1711597500}
   gameOverMusic: {fileID: 0}
+  cameraShake: {fileID: 753279221}
   isChasing: 0
   forcedChase: 0
 --- !u!61 &1711597496
@@ -39874,7 +39922,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1257843729}
-  - {fileID: 753279219}
   - {fileID: 1281178602}
   - {fileID: 1967432330}
   - {fileID: 791617716}
@@ -39895,3 +39942,4 @@ SceneRoots:
   - {fileID: 1961199771}
   - {fileID: 728356007}
   - {fileID: 1187884225}
+  - {fileID: 853066132}

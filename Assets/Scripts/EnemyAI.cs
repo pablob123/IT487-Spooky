@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     public AudioSource chaseMusic;
     public AudioSource gameOverMusic;
 
+    public Shake cameraShake;
+
     public bool isChasing = false;
 
     public bool forcedChase = false;
@@ -64,6 +66,9 @@ public class EnemyAI : MonoBehaviour
             isChasing = false;
             forcedChase = false;
 
+            if (cameraShake != null) 
+                cameraShake.Shaking = false;
+
             if (chaseMusic != null)
                 chaseMusic.Stop();
 
@@ -88,8 +93,12 @@ public class EnemyAI : MonoBehaviour
         {
             isChasing = true;
 
+            if (cameraShake != null)
+                cameraShake.Shaking = true;
+
             if (chaseMusic != null && !chaseMusic.isPlaying)
                 chaseMusic.Play();
+
 
             newPosition = Vector2.MoveTowards(
                 rb.position,
@@ -100,6 +109,9 @@ public class EnemyAI : MonoBehaviour
         else
         {
             isChasing = false;
+
+            if (cameraShake != null)
+                cameraShake.Shaking = false;
 
             if (chaseMusic != null && chaseMusic.isPlaying)
                 chaseMusic.Stop();
@@ -129,6 +141,9 @@ public class EnemyAI : MonoBehaviour
 
         forcedChase = true;
         isChasing = true;
+        
+        if (cameraShake != null)
+            cameraShake.Shaking = true;
 
         if (chaseMusic != null && !chaseMusic.isPlaying)
             chaseMusic.Play();
