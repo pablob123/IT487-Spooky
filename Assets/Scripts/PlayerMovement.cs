@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMovementLocked = false;
 
+    public bool isAutoWalking = false;
+    public Transform autoWalkTarget;
+    public float autoWalkSpeed = 2f;
+
     [SerializeField] private Interactor interactor;
 
     public AudioSource footsteps;
@@ -32,17 +36,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!isMovementLocked)
+        if (isAutoWalking)
+        {
+            Vector2 direction = (Vector2)autoWalkTarget.position - rb.position;
+
+            if (direction.magnitude > 0.1f)
+            {
+                currentInput = direction.normalized;
+                rb.linearVelocity = currentInput * autoWalkSpeed;
+            }
+            else
+            {
+                isAutoWalking = false;
+                currentInput = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
+            }
+        }
+
+        else if (!isMovementLocked)
         {
             currentInput = GetInput();
             rb.linearVelocity = currentInput * moveSpeed;
-
-            if (currentInput != Vector2.zero)
-            {
-                lastMoveDirection = currentInput.normalized;
-
-                interactor.SetFacingDirection(lastMoveDirection);
-            }
         }
         else
         {
@@ -50,8 +64,15 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
 
+        if (currentInput != Vector2.zero)
+        {
+            lastMoveDirection = currentInput.normalized;
+            interactor.SetFacingDirection(lastMoveDirection);
+        }
+
         AudioClip walkingSound = onDirt ? dirtWalking : normalWalking;
         footsteps.volume = 1f;
+
         if (footsteps.clip != walkingSound)
         {
             footsteps.Stop();

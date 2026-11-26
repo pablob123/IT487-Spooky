@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class PlayerInv : MonoBehaviour
@@ -9,6 +8,8 @@ public class PlayerInv : MonoBehaviour
     public AudioSource pickupAudio;
 
     public ObjectiveManager objectiveManager;
+
+    public DialogueManager dialogueManager;
 
     public GameObject ambushTrigger;
 
@@ -45,6 +46,17 @@ public class PlayerInv : MonoBehaviour
                 else
                 {
                     Debug.LogWarning("Pickup Audio or Pickup Sound is missing!");
+                }
+
+                if (dialogueManager != null)
+                {
+                    dialogueManager.StartDialogue(
+                        new string[]
+                        {
+                            "I need to get out of here and head back home."
+                        },
+                        false
+                    );
                 }
             }
 

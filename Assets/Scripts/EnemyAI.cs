@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -9,6 +8,8 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public float detectionRange = 4f;
     public float chaseSpeed = 4f;
+
+    public float warningRange = 8f;
 
     public float catchDistance = 0.6f;
     private bool playerCaught = false;
@@ -66,8 +67,11 @@ public class EnemyAI : MonoBehaviour
             isChasing = false;
             forcedChase = false;
 
-            if (cameraShake != null) 
+            if (cameraShake != null)
+            {
                 cameraShake.Shaking = false;
+                cameraShake.lightShaking = false;
+            }
 
             if (chaseMusic != null)
                 chaseMusic.Stop();
@@ -94,11 +98,13 @@ public class EnemyAI : MonoBehaviour
             isChasing = true;
 
             if (cameraShake != null)
+            {
                 cameraShake.Shaking = true;
+                cameraShake.lightShaking = false;
+            }
 
             if (chaseMusic != null && !chaseMusic.isPlaying)
                 chaseMusic.Play();
-
 
             newPosition = Vector2.MoveTowards(
                 rb.position,
@@ -111,7 +117,10 @@ public class EnemyAI : MonoBehaviour
             isChasing = false;
 
             if (cameraShake != null)
+            {
                 cameraShake.Shaking = false;
+                cameraShake.lightShaking = distance <= warningRange;
+            }
 
             if (chaseMusic != null && chaseMusic.isPlaying)
                 chaseMusic.Stop();
@@ -141,9 +150,12 @@ public class EnemyAI : MonoBehaviour
 
         forcedChase = true;
         isChasing = true;
-        
+
         if (cameraShake != null)
+        {
             cameraShake.Shaking = true;
+            cameraShake.lightShaking = false;
+        }
 
         if (chaseMusic != null && !chaseMusic.isPlaying)
             chaseMusic.Play();
